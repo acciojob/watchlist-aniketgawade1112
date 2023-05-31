@@ -30,16 +30,16 @@ public class MovieRepository {
         return "Connected them Successfully";
     }
 
-    public Movie getMovieByName(Movie movie) {
-        if (movieDb.containsKey(movie)) {
-            return movie;
+    public Movie getMovieByName(String movieName) {
+        if (movieDb.containsKey(movieName)) {
+            return movieDb.get(movieName);
         }
         return null;
     }
 
-    public Director getDirectorByName(Director director) {
-        if (directorDb.containsKey(director)) {
-            return director;
+    public Director getDirectorByName(String directorName) {
+        if (directorDb.containsKey(directorName)) {
+            return directorDb.get(directorName);
         }
         return null;
     }

@@ -12,25 +12,23 @@ public class MovieService {
     MovieRepository movieRepository;
 
     public String addMovie(Movie movie) {
-        String ans = movieRepository.addMovie(movie);
-        return ans;
+        return movieRepository.addMovie(movie);
     }
 
     public String addDirector(Director director) {
-        String ans = movieRepository.addDirector(director);
-        return ans;
+        return movieRepository.addDirector(director);
     }
 
     public String addMovieDirectorPair(String movieName, String directorName) {
         return movieRepository.addMovieDirectorPair(movieName, directorName);
     }
 
-    public Movie getMovieByName(Movie movie) {
-        return movieRepository.getMovieByName(movie);
+    public Movie getMovieByName(String movieName) {
+        return movieRepository.getMovieByName(movieName);
     }
 
-    public Director getDirectorByName(Director director) {
-        return movieRepository.getDirectorByName(director);
+    public Director getDirectorByName(String directorName) {
+        return movieRepository.getDirectorByName(directorName);
     }
 
     public String deleteDirectorByName(String directorName) {

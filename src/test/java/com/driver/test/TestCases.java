@@ -3,7 +3,10 @@ package com.driver.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+import java.util.Objects;
 
+import com.driver.Movie;
+import com.driver.MovieController;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -19,5 +22,18 @@ import com.driver.Application;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestCases {
 
-    
+    @Autowired
+    MovieController movieController;
+
+    @Test
+    public void testAddMovie() {
+        Movie movie = new Movie("RRR", 120, 9.0);
+
+        ResponseEntity<String> ans = movieController.addMovie(movie);
+        ResponseEntity<Movie> movieResponse = movieController.getMovieByName("RRR");
+        if (Objects.nonNull(movieResponse)) {
+            assertEquals(9.0, movieResponse.getBody().getImdbRating());
+        }
+
+    }
 }
